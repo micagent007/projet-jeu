@@ -9,6 +9,7 @@ int main(){
     getMouse(x,y);
     x1=x;
     y1=y;
+
     while (true){
         if (getMouse(x2,y2)==1){
             drawLine(x1,y1,x2,y2,RED);
