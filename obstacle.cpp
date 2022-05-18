@@ -1,6 +1,8 @@
 #include "obstacle.h"
 #include "dino.h"
 
+
+// T a faire sur tous les obstacles
 obstacle::obstacle(int n){
     if (n==0){
         for (int k=0;k<=(w/2);k++){
@@ -11,25 +13,22 @@ obstacle::obstacle(int n){
         for (int k=0;k<=(w/2);k++){
             cord O={w/2+xDino+wDino+k,hFloor-w/2+k};
             P.push_back(O);
-            cord_double T={1,1};
+            cord_double T={1,-1};
             D.push_back(T);}
         taille=P[P.size()-1].x;
 
     }
     if (n==1){
-        int m=0;
         for (int k=0;k<=w;k++){
             cord O={k,int(hFloor-pow(k,1.4)/10)};
             P.push_back(O);
-            cord_double T={1,1};
+            cord_double T={1,1.4*k};
             D.push_back(T);
         }
         for (int k=0;k<=w;k++){
-            if (int(w+k)>m)
-                m=int(w+k);
             cord O={w+k,int(hFloor-pow(w-k,1.4)/10)};
             P.push_back(O);
-            cord_double T={1,1};
+            cord_double T={1,-1.4};
             D.push_back(T);
         }
         taille=P[P.size()-1].x;
