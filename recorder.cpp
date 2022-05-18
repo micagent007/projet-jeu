@@ -1,5 +1,6 @@
 #include "recorder.h"
 #include "obstacle.h"
+#include "dino.h"
 
 void Recorder::display(int to){
     clearWindow();
@@ -15,7 +16,7 @@ void Recorder::display_obstacle(int to, obstacle O){
     fillRect(xDino,hFloor-T.altitude(to),wDino,-hDino,GREEN);
     int n=O.P.size();
     for(int i=0;i<=n;i++){
-            drawRect(O.P[i].x-T.jumptime(to)%w,O.P[i].y,1,1,RED);
+            drawRect(O.P[i].x-T.jumptime(to)%(w+xDino+wDino),O.P[i].y,1,1,RED);
 
     }
     T.jumpset(T.jumptime(to)+1,to);

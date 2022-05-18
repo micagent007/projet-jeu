@@ -1,7 +1,7 @@
 #include "dino.h"
 
 dino::dino(){
-    t=-10000;
+    t=0;
 }
 
 int dino::jumptime(int to){
