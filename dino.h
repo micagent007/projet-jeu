@@ -7,7 +7,7 @@ using namespace Imagine;
 using namespace std;
 
 const double wDino=20,hDino=30,xDino=25;
-const double h=5*hDino,w=512;
+const double h=20*hDino,w=400;
 const double hFloor=h-hDino;
 const double tJump=20,hJump=3*hDino;
 
@@ -22,6 +22,7 @@ public:
     void jump(int to);
     bool jumping(int to);
     double altitude(int to);
+
 
 };
 
