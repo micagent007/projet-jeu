@@ -4,7 +4,7 @@
 #include "cord.h"
 
 class obstacle {
-
+public:
      std::vector<cord> P;
      std::vector<cord_double> D;
      obstacle(int n);

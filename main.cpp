@@ -1,15 +1,17 @@
 #include "dino.h"
 #include "recorder.h"
+#include "obstacle.h"
 
 const int to=200;
 
 int main(){
     openWindow(w,h);
     Recorder R;
-    R.display(to);
+    obstacle O(1);
+    R.display_obstacle(to,O);
     while(true){
         if(keyboard()==' '){
-            R.display(to);
+            R.display_obstacle(to,O);
             milliSleep(5);
         }
 
