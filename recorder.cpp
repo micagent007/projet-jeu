@@ -19,7 +19,7 @@ void Recorder::display_obstacle(int to, obstacle O){
             drawRect(O.P[i].x-T.jumptime(to)%(w+xDino+wDino),O.P[i].y,1,1,RED);
 
     }
-    T.jumpset(T.jumptime(to)+1,to);
+    T.jumpset(T.jumptime(to)+vit,to);
 
 }
 

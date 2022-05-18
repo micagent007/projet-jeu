@@ -10,6 +10,7 @@ const int wDino=20,hDino=30,xDino=25;
 const int h=20*hDino,w=400;
 const int hFloor=h-hDino;
 const int tJump=20,hJump=3*hDino;
+const int vit=5 ;
 
 #define square(a) (a)*(a)
 
