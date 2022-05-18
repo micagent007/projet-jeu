@@ -9,44 +9,39 @@ using namespace std;
 #include <Imagine/Images.h>
 #include "cord.h"
 
-cord operator+(cord a , cord b ) {  // Sum
-    cord V={a.x+b.x,a.y+b.y};
+cord cord::operator+(cord b ) {  // Sum
+    cord V={x+b.x,y+b.y};
     return V;
 }
-cord operator-(cord a , cord b ) { // Difference
-    cord V={a.x-b.x,a.y-b.y};
+cord cord::operator-(cord b ) { // Difference
+    cord V={x-b.x,y-b.y};
     return V;
 }
-double norm2 ( cord a ) {   // Euclide an norm
-    double N=sqrt(pow(a.x,2)+pow(a.y,2));
+double cord::norm2 () {   // Euclide an norm
+    double N=sqrt(pow(x,2)+pow(y,2));
     return N;
 }
-double norminf(cord a){
-    return max(abs(a.x),abs(a.y));
+double cord::norminf(){
+    return max(abs(x),abs(y));
 }
-cord operator*(cord a , int lambda) {  // Mult . scalar
-    cord V={lambda*a.x,lambda*a.y};
+cord cord::operator*(int lambda) {  // Mult . scalar
+    cord V={lambda*x,lambda*y};
     return V;
 }
-cord operator*( double lambda , cord a ) { // Mult . scalar
-    return (operator*(a,lambda));
+
+double cord::operator*(cord v){
+    return (x*v.x+y*v.y);
 }
-double scalar(cord u, cord v){
-    return (u.x*v.x+u.y*v.y);
-}
-double angle(cord v , cord u){
-    double S=v.x*u.y-v.y*u.x;
+double cord::angle(cord v){
+    double S=v.x*y-v.y*x;
     if (S>=0)
-            return(acos(scalar(u,v)*1/(norm2(u)*norm2(v))));
-    return(-acos(scalar(u,v)/(norm2(u)*norm2(v))));
-}
-cord_double::cord_double(double x,double y){
-    this->x=x;
-    this->y=y;
+            return(acos(x*v.x+y*v.y)*1/(norm2()*v.norm2()));
+    return(-acos(x*v.x+y*v.y)/(norm2()*v.norm2()));
 }
 
+
 cord_double cord_double::operator*(double lambda) {  // Mult . scalar
-    cord_double V(x*lambda,y*lambda);
+    cord_double V{x*lambda,y*lambda};
     return V;
 }
 cord_double cord_double::operator+(cord_double b ) {  // Sum
@@ -69,6 +64,6 @@ double cord_double::operator*(cord_double v){
 }
 
 cord_double cord_double::rotation(double angle){
-    cord_double V(x*cos(angle)-y*sin(angle),x*sin(angle)+y*cos(angle));
+    cord_double V{x*cos(angle)-y*sin(angle),x*sin(angle)+y*cos(angle)};
     return V;
 }

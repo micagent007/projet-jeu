@@ -1,17 +1,17 @@
 #include "obstacle.h"
-#include "dino.h"
+#include "voiture.h"
 
 
 // T a faire sur tous les obstacles
 obstacle::obstacle(int n){
     if (n==0){
         for (int k=0;k<=(w/2);k++){
-            cord O={k+xDino+wDino,hFloor-k};
+            cord O={k+xvoiture+wvoiture,hFloor-k};
             P.push_back(O);
             cord_double T={1,1};
             D.push_back(T);}
         for (int k=0;k<=(w/2);k++){
-            cord O={w/2+xDino+wDino+k,hFloor-w/2+k};
+            cord O={w/2+xvoiture+wvoiture+k,hFloor-w/2+k};
             P.push_back(O);
             cord_double T={1,-1};
             D.push_back(T);}
