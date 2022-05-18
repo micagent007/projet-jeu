@@ -5,5 +5,5 @@ list(APPEND CMAKE_SYSTEM_FRAMEWORK_PATH /Library/Frameworks) #Mac, why not auto?
 find_package(Imagine REQUIRED)
 
 project(rider)
-add_executable(projet-jeu main.cpp)
+add_executable(projet-jeu main.cpp recorder.cpp recorder.h dino.cpp dino.h)
 ImagineUseModules(projet-jeu Graphics)
