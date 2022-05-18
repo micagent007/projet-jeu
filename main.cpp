@@ -2,17 +2,26 @@
 #include "recorder.h"
 #include "obstacle.h"
 
-const int to=200;
+int to=200;
 
 int main(){
     openWindow(w,h);
     Recorder R;
-    obstacle O(1);
-    R.display_obstacle(to,O);
+    obstacle Q(0);
+    obstacle O(2);
+    obstacle P(1);
+    obstacle T=Q+O+P;
+    R.display_obstacle(to,T);
+    int t=0;
     while(true){
         if(keyboard()==' '){
-            R.display_obstacle(to,O);
+            t=R.display_obstacle(to,T);
             milliSleep(5);
+            if (T.taille-w/2<t){
+                obstacle P(1+rand()%nbre_obstacle);
+                T=T+P;
+            }
+
         }
 
     }

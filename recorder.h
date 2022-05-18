@@ -9,7 +9,7 @@ class Recorder{
 public:
     void display(int to);
     void action(int to);
-    void display_obstacle(int to, obstacle O);
+    int display_obstacle(int to, obstacle O);
 };
 
 #endif // RECORDER_H

@@ -8,8 +8,9 @@ int dino::jumptime(int to){
     return t;
 }
 
-void dino::jumpset(int time,int to){
+int dino::jumpset(int time,int to){
     t=time;
+    return(t);
 }
 
 bool dino::jumping(int to){

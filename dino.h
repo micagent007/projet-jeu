@@ -19,7 +19,7 @@ class dino{
 public:
     dino();
     int jumptime(int to);
-    void jumpset(int time,int to);
+    int jumpset(int time,int to);
     void jump(int to);
     bool jumping(int to);
     double altitude(int to);
