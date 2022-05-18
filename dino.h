@@ -6,10 +6,10 @@ using namespace Imagine;
 #include <iostream>
 using namespace std;
 
-const double wDino=20,hDino=30,xDino=25;
-const double h=20*hDino,w=400;
-const double hFloor=h-hDino;
-const double tJump=20,hJump=3*hDino;
+const int wDino=20,hDino=30,xDino=25;
+const int h=20*hDino,w=400;
+const int hFloor=h-hDino;
+const int tJump=20,hJump=3*hDino;
 
 #define square(a) (a)*(a)
 
