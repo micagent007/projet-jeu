@@ -35,7 +35,7 @@ obstacle::obstacle(int n){
 
     }
     if (n==2){
-        for (double k=0;k<=2*w;k+=0.5){
+        for (double k=0;k<=2*w;k++){
             cord O={int(k),int(hFloor-(h/3)*sin(((2*M_PI*k)/w)-M_PI/2)-h/3)};
             P.push_back(O);
             cord_double T={1,1};

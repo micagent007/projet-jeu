@@ -3,6 +3,7 @@
 
 #include "voiture.h"
 #include "obstacle.h"
+#include "cord.h"
 
 class Recorder{
 
@@ -12,5 +13,7 @@ public:
     void action(int to);*/
     int display_obstacle(obstacle O);
 };
+
+void rotat_rect(int x,int y,int w,int h,cord_double tangent,Color col);
 
 #endif // RECORDER_H
