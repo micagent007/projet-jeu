@@ -6,11 +6,12 @@ using namespace Imagine;
 #include <iostream>
 using namespace std;
 #include "cord.h"
+#include "obstacle.h"
 
 const int wvoiture=30,hvoiture=10,xvoiture=25;
 const int h=700,w=400;
 const int hFloor=h-4*hvoiture;
-const int vmax=5 ;
+const int vmax=10 ;
 
 #define square(a) (a)*(a)
 
@@ -19,7 +20,9 @@ public:
     cord Pos;
     cord_double vitesse;
     cord_double acceleration;
+    double hauteur(obstacle O,int n);
     int t;
+
 
     voiture();
     /*void jump(int to);

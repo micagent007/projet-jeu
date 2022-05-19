@@ -7,6 +7,11 @@ voiture::voiture(){
     t=0;
 }
 
+double voiture::hauteur(obstacle O,int t){
+    int h = O.P[t].y;
+    return h;
+}
+
 /*bool voiture::jumping(int to){
     if(t>tJump or t<0)
         return  false;
