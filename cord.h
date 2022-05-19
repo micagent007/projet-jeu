@@ -20,6 +20,7 @@ public:
     cord operator-(cord b) ; // Difference
     double norm2 () ; // Euclide an norm
     double norminf();
+    void normalize();
     cord operator*(int lambda) ; // Mult . scalar
     double operator*(cord v);
     double angle(cord v);// retourne l'angle entre a et v
@@ -32,6 +33,7 @@ public:
     cord_double operator-(cord_double b) ; // Difference
     double norm2 () ; // Euclide an norm
     cord_double operator*(double lambda) ; // Mult . scalar
+    void normalize();
     double operator*(cord_double v);
     cord_double rotation(double angle);
 };

@@ -29,6 +29,12 @@ cord cord::operator*(int lambda) {  // Mult . scalar
     return V;
 }
 
+void cord::normalize(){
+    x=x/this->norm2();
+    y=y/this->norm2();
+    return;
+}
+
 double cord::operator*(cord v){
     return (x*v.x+y*v.y);
 }
@@ -59,6 +65,13 @@ double cord_double::norm2 () {   // Euclidean norm
 cord_double operator*( double lambda , cord_double a ) { // Mult . scalar
     return a*lambda;
 }
+
+void cord_double::normalize(){
+    x=x/this->norm2();
+    y=y/this->norm2();
+    return;
+}
+
 double cord_double::operator*(cord_double v){
     return (x*v.x+y*v.y);
 }

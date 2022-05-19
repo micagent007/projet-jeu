@@ -8,8 +8,8 @@ voiture::voiture(){
 }
 
 double voiture::hauteur(obstacle O,int t){
-    int h = O.P[t].y;
-    return h;
+    int alt = O.P[t].y;
+    return alt;
 }
 
 /*bool voiture::jumping(int to){

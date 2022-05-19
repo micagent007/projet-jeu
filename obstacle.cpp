@@ -8,12 +8,14 @@ obstacle::obstacle(int n){
         for (int k=0;k<=(w/2);k++){
             cord O={k+xvoiture+wvoiture,hFloor-k};
             P.push_back(O);
-            cord_double T={1,1};
+            cord_double T={1,-1};
+            T.normalize();
             D.push_back(T);}
         for (int k=0;k<=(w/2);k++){
             cord O={w/2+xvoiture+wvoiture+k,hFloor-w/2+k};
             P.push_back(O);
-            cord_double T={1,-1};
+            cord_double T={1,1};
+            T.normalize();
             D.push_back(T);}
         taille=P[P.size()-1].x;
 
@@ -23,12 +25,14 @@ obstacle::obstacle(int n){
             cord O={k,int(hFloor-pow(k,1.4)/10)};
             P.push_back(O);
             cord_double T={1,1.4*k};
+            T.normalize();
             D.push_back(T);
         }
         for (int k=0;k<=w;k++){
             cord O={w+k,int(hFloor-pow(w-k,1.4)/10)};
             P.push_back(O);
             cord_double T={1,-1.4};
+            T.normalize();
             D.push_back(T);
         }
         taille=P[P.size()-1].x;
@@ -39,6 +43,7 @@ obstacle::obstacle(int n){
             cord O={int(k),int(hFloor-(h/3)*sin(((2*M_PI*k)/w)-M_PI/2)-h/3)};
             P.push_back(O);
             cord_double T={1,1};
+            T.normalize();
             D.push_back(T);
         }
         taille=P[P.size()-1].x;

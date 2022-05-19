@@ -13,10 +13,11 @@
 
 int Recorder::display_obstacle(obstacle O){
     clearWindow();
-    rotat_rect(T.Pos.x,T.hauteur(O,T.t),wvoiture,-hvoiture,O.D[T.t],GREEN);
+    //fillRect(T.Pos.x,T.hauteur(O,T.t),wvoiture,-hvoiture,GREEN);
+    rotat_rect(T.Pos.x,T.hauteur(O,T.t),wvoiture,hvoiture,O.D[T.t],GREEN);
     int n=O.P.size()-1;
     for(int i=0;i<n;i++){
-            drawLine(O.P[i].x-T.t%(O.taille),O.P[i].y,O.P[i+1].x-T.t%(O.taille),O.P[i+1].y,RED,2);
+            drawLine(O.P[i].x-T.t%(O.taille)-wvoiture,O.P[i].y,O.P[i+1].x-T.t%(O.taille)-wvoiture,O.P[i+1].y,RED,2);
 
     }
     T.t=T.t+vmax;// a remplacer par T.vitesse.x quand la vitesse sera faite

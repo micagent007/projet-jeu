@@ -25,4 +25,13 @@ int main(){
     }
     endGraphics();
     return 0;
+//    obstacle T(0);
+//    cord_double V={1,1},N={4,8},Q={1,-1};
+//    V=V*(1/V.norm2()),N=N*(1/N.norm2()),Q=Q*(1/Q.norm2());
+//    clearWindow();
+//    rotat_rect(500,500,70,30,Q,RED);
+//    click();
+//    clearWindow();
+//    rotat_rect(500,500,70,30,V,RED);
+
 }
