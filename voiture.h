@@ -7,7 +7,8 @@ using namespace Imagine;
 using namespace std;
 #include "cord.h"
 #include "obstacle.h"
-
+const double dt = 0.01;
+const int freqDisplay =10;
 const int wvoiture=30,hvoiture=10,xvoiture=25;
 const int h=700,w=400;
 const int hFloor=h-4*hvoiture;
@@ -21,7 +22,7 @@ public:
     cord_double vitesse;
     cord_double acceleration;
     double hauteur(obstacle O,int n);
-    int t;
+    int t;// corespond au trajet parcourus par la voiture en x
 
 
     voiture();
@@ -31,5 +32,6 @@ public:
 };
 
 int keyboard();
+Event clicks();
 
 #endif // voiture_H

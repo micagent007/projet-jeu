@@ -12,6 +12,7 @@ public:
      obstacle(int n);
      obstacle(int t,std::vector<cord>R,std::vector<cord_double> T);
      obstacle operator+(obstacle b ) ; // Sum
+     obstacle operator-(obstacle b ) ; // Diff
 };
 
 #endif // OBSTACLE_H

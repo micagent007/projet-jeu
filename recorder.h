@@ -11,7 +11,7 @@ public:
     voiture T;
     /*void display(int to);
     void action(int to);*/
-    int display_obstacle(obstacle O);
+    void display_obstacle(obstacle O ,int score);
 };
 
 

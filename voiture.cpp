@@ -49,3 +49,13 @@ int keyboard() {
     } while(e.type!=EVT_NONE);
     return 0;
 }
+
+Event clicks(){
+    Event e;
+    do {
+        getEvent(0,e);
+        if(e.type==EVT_BUT_ON)
+            return e;
+    } while(e.type!=EVT_NONE);
+    return(e);
+}

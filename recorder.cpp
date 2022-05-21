@@ -11,19 +11,20 @@
     T.jumpset(T.jumptime(to)+1,to);
 }*/
 
-int Recorder::display_obstacle(obstacle O){
+void Recorder::display_obstacle(obstacle O,int score){
     clearWindow();
     setBackGround(AlphaColor(26, 42, 35 ));
-    Color col(249, 13, 253);
+    fillRect(10,10,8,30,WHITE);
+    fillRect(20,10,8,30,WHITE);
+    drawString(w/2-50,h/8,to_string(score),WHITE,50);
     //fillRect(T.Pos.x,T.hauteur(O,T.t),wvoiture,-hvoiture,GREEN);
     rotat_rect(T.Pos.x,T.hauteur(O,T.t),wvoiture,hvoiture,O.D[T.t],GREEN);
     int n=O.P.size()-1;
     for(int i=0;i<n;i++){
-            drawLine(O.P[i].x-T.t%(O.taille)-wvoiture,O.P[i].y,O.P[i+1].x-T.t%(O.taille)-wvoiture,O.P[i+1].y,col,2);
+            drawLine(O.P[i].x-T.t%(O.taille)-wvoiture,O.P[i].y,O.P[i+1].x-T.t%(O.taille)-wvoiture,O.P[i+1].y,Color(249, 13, 253),2);
 
     }
-    T.t=T.t+vmax;// a remplacer par T.vitesse.x quand la vitesse sera faite
-    return(T.t);
+    return;
 }
 
 void rotat_rect(int x,int y,int w,int h,cord_double tangent, Color col){

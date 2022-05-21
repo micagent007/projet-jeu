@@ -66,3 +66,15 @@ obstacle obstacle:: operator+(obstacle b){// Sum
     return(F);
 } ;
 
+obstacle obstacle:: operator-(obstacle b){// Sum
+    int t=taille-b.taille;
+    std::vector<cord> R;
+    for (int k=b.P.size();k<P.size();k++)
+        R.push_back({P[k].x+b.P[b.P.size()-1].x,P[k].y});
+    std::vector<cord_double> T;
+    for (int k=b.P.size();k<P.size();k++)
+        T.push_back(D[k]);
+    obstacle F={t,R,T};
+    return(F);
+} ;
+
