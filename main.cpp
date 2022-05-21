@@ -5,6 +5,7 @@
 
 int main(){
     openWindow(w,h);
+    home_screen(10,180);
     Recorder R;
     obstacle Q(0);
     obstacle O(2);
@@ -12,6 +13,7 @@ int main(){
     obstacle T=Q+O+P;
     R.display_obstacle(T);
     int x=0;
+    int x1=0,x2=0;
     while(true){
         if(keyboard()==' '){
             x=R.display_obstacle(T);
@@ -19,7 +21,6 @@ int main(){
                 obstacle P(1+rand()%nbre_obstacle);
                 T=T+P;
             }
-
         }
 
     }
