@@ -45,7 +45,7 @@ void home_screen(int score , int record){
     drawString(4*w/6-30,h/5+h/6+20,"RECORD",WHITE,15);
     drawString(w/6,h/5+h/8+20,to_string(score),WHITE,50);
     drawString(3*w/6+30,h/5+h/8+20,to_string(record),WHITE,50);
-    fillCircle(w/2,2*h/3,80,WHITE);
+    fillCircle(w/2,2*h/3,120,WHITE);
     int xy[12];
     xy[0]=w/2+80,
             xy[1]=2*h/3,
@@ -56,7 +56,7 @@ void home_screen(int score , int record){
     fillPoly(xy,3,AlphaColor(26, 42, 35 ));
     int x,y;
     getMouse(x,y);
-    while(sqrt(pow(x-w/2,2)+pow(y-2*h/3,2))>80)
+    while(sqrt(pow(x-w/2,2)+pow(y-2*h/3,2))>120)
         getMouse(x,y);
 }
 bool wait_screen(){

@@ -5,7 +5,7 @@
 
 int main(){
     openWindow(w,h);
-    home_screen(10,180);
+    home_screen(10,18);
     Recorder R;
     obstacle Q(0);
     obstacle O(2);
