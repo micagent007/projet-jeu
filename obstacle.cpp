@@ -5,40 +5,25 @@
 // T a faire sur tous les obstacles
 obstacle::obstacle(int n){
     if (n==0){
-//        for (int k=0;k<=(w/2);k++){
-//            cord O={k+xvoiture+wvoiture,hFloor-k};
-//            P.push_back(O);
-//            cord_double T={1,-1};
-//            T.normalize();
-//            D.push_back(T);}
-//        for (int k=0;k<=(w/2);k++){
-//            cord O={w/2+xvoiture+wvoiture+k,hFloor-w/2+k};
-//            P.push_back(O);
-//            cord_double T={1,1};
-//            T.normalize();
-//            D.push_back(T);}
-//        taille=P[P.size()-1].x;
-
-
-                for(int k=0;k<w/5;k++){//sol plat sur 1/5 de l'écran
-                    cord O={k,hFloor};
-                    P.push_back(O);
-                    cord_double T={1,0};
-                    T.normalize();
-                    D.push_back(T);}
-                for (int k=w/5;k<=(3*w/5);k++){//affine croissante sur 2/5 de l'écran
-                    cord O={k,hFloor-k+w/5};
-                    P.push_back(O);
-                    cord_double T={1,-1};
-                    T.normalize();
-                    D.push_back(T);}
-                for (int k=3*w/5;k<=w;k++){//affine décroissante sur 2/5 de l'écran
-                    cord O={k,hFloor+k-w};
-                    P.push_back(O);
-                    cord_double T={1,1};
-                    T.normalize();
-                    D.push_back(T);}
-                taille=P[P.size()-1].x;
+        for(int k=0;k<w/5;k++){//sol plat sur 1/5 de l'écran
+            cord O={k,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+        for (int k=w/5;k<=(3*w/5);k++){//affine croissante sur 2/5 de l'écran
+            cord O={k,hFloor-k+w/5};
+            P.push_back(O);
+            cord_double T={1,-1};
+            T.normalize();
+            D.push_back(T);}
+        for (int k=3*w/5;k<=w;k++){//affine décroissante sur 2/5 de l'écran
+            cord O={k,hFloor+k-w};
+            P.push_back(O);
+            cord_double T={1,1};
+            T.normalize();
+            D.push_back(T);}
+        taille=P[P.size()-1].x;
 
     }
     if (n==1){
@@ -70,11 +55,13 @@ obstacle::obstacle(int n){
         taille=P[P.size()-1].x;
     }
 }
+
 obstacle::obstacle(int t,std::vector<cord>R,std::vector<cord_double> T){
     taille=t;
     P=R;
     D=T;
 };
+
 obstacle obstacle:: operator+(obstacle b){// Sum
     int t=taille+b.taille;
     std::vector<cord> R=P;
@@ -83,19 +70,6 @@ obstacle obstacle:: operator+(obstacle b){// Sum
     std::vector<cord_double> T=D;
     for (int k=0;k<b.D.size();k++)
         T.push_back(b.D[k]);
-    obstacle F={t,R,T};
+    obstacle F(t,R,T);
     return(F);
 } ;
-
-obstacle obstacle:: operator-(obstacle b){// Sum
-    int t=taille-b.taille;
-    std::vector<cord> R;
-    for (int k=b.P.size();k<P.size();k++)
-        R.push_back({P[k].x+b.P[b.P.size()-1].x,P[k].y});
-    std::vector<cord_double> T;
-    for (int k=b.P.size();k<P.size();k++)
-        T.push_back(D[k]);
-    obstacle F={t,R,T};
-    return(F);
-} ;
-

@@ -66,17 +66,17 @@ cord_double operator*( double lambda , cord_double a ) { // Mult . scalar
     return a*lambda;
 }
 
-void cord_double::normalize(){
+void cord_double::normalize(){// normalise le vecteur
     x=x/this->norm2();
     y=y/this->norm2();
     return;
 }
 
-double cord_double::operator*(cord_double v){
+double cord_double::operator*(cord_double v){ //produit scalaire
     return (x*v.x+y*v.y);
 }
 
-cord_double cord_double::rotation(double angle){
+cord_double cord_double::rotation(double angle){ //rotation d'un angle
     cord_double V{x*cos(angle)-y*sin(angle),x*sin(angle)+y*cos(angle)};
     return V;
 }
