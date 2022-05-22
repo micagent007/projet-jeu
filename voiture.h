@@ -9,7 +9,7 @@ using namespace std;
 #include "obstacle.h"
 const double dt = 0.01;
 const int freqDisplay =10;
-const int wvoiture=30,hvoiture=10,xvoiture=25;
+const int wvoiture=30,hvoiture=10,xvoiture=50;
 const int h=700,w=400;
 const int hFloor=h-4*hvoiture;
 const int vmax=10 ;

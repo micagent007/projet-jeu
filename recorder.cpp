@@ -18,12 +18,11 @@ void Recorder::display_obstacle(obstacle O,int score){
     fillRect(20,10,8,30,WHITE);
     drawString(w/2-50,h/8,to_string(score),WHITE,50);
     //fillRect(T.Pos.x,T.hauteur(O,T.t),wvoiture,-hvoiture,GREEN);
-    rotat_rect(T.Pos.x,T.hauteur(O,T.t),wvoiture,hvoiture,O.D[T.t],GREEN);
+    rotat_rect(T.Pos.x,T.hauteur(O,T.t+xvoiture),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
     int n=O.P.size()-1;
-    for(int i=0;i<=w;i++){
+    for(int i=0;i<=w+w/5;i++){
             //drawLine(O.P[i].x-T.t%(O.taille)-wvoiture,O.P[i].y,O.P[i+1].x-T.t%(O.taille)-wvoiture,O.P[i+1].y,Color(249, 13, 253),2);
-            drawLine(O.P[i+T.t-w/5].x-T.t-wvoiture,O.P[i+T.t-w/5].y,O.P[i+(T.t+1)-w/5].x-T.t-wvoiture,O.P[i+(T.t+1)-w/5].y,Color(249, 13, 253),2);
-
+        drawLine(i,O.P[i+T.t].y,i+1,O.P[i+1+T.t].y,Color(249, 13, 253),2);
     }
     return;
 }

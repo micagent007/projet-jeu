@@ -25,7 +25,7 @@ int main(){
                     R.T.t+=vmax;
                     score=R.T.t/200;
                     R.display_obstacle(S,score);
-                    if (S.taille-w<R.T.t){
+                    if (S.taille-2*w<R.T.t){
                         i=1+rand()%nbre_obstacle;
                         obstacle Q(i);
                         S=S+Q;
