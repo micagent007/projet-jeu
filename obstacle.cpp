@@ -24,14 +24,14 @@ obstacle::obstacle(int n){
         for (int k=0;k<=w;k++){
             cord O={k,int(hFloor-pow(k,1.4)/10)};
             P.push_back(O);
-            cord_double T={1,1.4*k};
+            cord_double T={1,-1.4*pow(k,0.4)/10};
             T.normalize();
             D.push_back(T);
         }
         for (int k=0;k<=w;k++){
             cord O={w+k,int(hFloor-pow(w-k,1.4)/10)};
             P.push_back(O);
-            cord_double T={1,-1.4};
+            cord_double T={1,1.4*pow(k,0.4)/10};
             T.normalize();
             D.push_back(T);
         }
@@ -42,7 +42,7 @@ obstacle::obstacle(int n){
         for (double k=0;k<=2*w;k++){
             cord O={int(k),int(hFloor-(h/3)*sin(((2*M_PI*k)/w)-M_PI/2)-h/3)};
             P.push_back(O);
-            cord_double T={1,1};
+            cord_double T={1,-(h/3)*(2*M_PI/w)*cos(((2*M_PI*k)/w)-M_PI/2)};
             T.normalize();
             D.push_back(T);
         }
