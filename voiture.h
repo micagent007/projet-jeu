@@ -20,11 +20,12 @@ class voiture{
 public:
     cord Pos;
     cord_double vitesse;
-    cord_double acceleration;
-    double hauteur(obstacle O,int n);
     int t;// corespond au trajet parcourus par la voiture en x
 
 
+    double hauteur(obstacle O,int n);
+    void refresh_vitess(bool accelere);
+    void refresh_pos();
     voiture();
     /*void jump(int to);
     bool jumping(int to);

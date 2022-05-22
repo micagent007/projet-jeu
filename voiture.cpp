@@ -3,7 +3,6 @@
 voiture::voiture(){
     Pos={xvoiture,hFloor};
     vitesse={0.,0.};
-    acceleration={0.,0.};
     t=0;
 }
 
@@ -12,6 +11,17 @@ double voiture::hauteur(obstacle O,int t){
     return alt;
 }
 
+void voiture::refresh_vitess(bool accelere){ // a modif
+    if (vitesse.x<vmax and accelere)
+        vitesse.x+=1;
+    if (vitesse.x>0 and !accelere)
+        vitesse.x-=1;
+
+}
+
+void voiture::refresh_pos(){
+    t+=vitesse.x;
+}
 /*bool voiture::jumping(int to){
     if(t>tJump or t<0)
         return  false;
