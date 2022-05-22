@@ -11,7 +11,7 @@ double voiture::hauteur(obstacle O,int t){
     return alt;
 }
 
-void voiture::refresh_vitess(bool accelere){ // a modif
+void voiture::refresh_vitess(bool accelere){ // a faire
     if (vitesse.x<vmax and accelere)
         vitesse.x+=1;
     if (vitesse.x>0 and !accelere)
@@ -19,25 +19,11 @@ void voiture::refresh_vitess(bool accelere){ // a modif
 
 }
 
-void voiture::refresh_pos(){
+void voiture::refresh_pos(){// a faire
     t+=vitesse.x;
 }
-/*bool voiture::jumping(int to){
-    if(t>tJump or t<0)
-        return  false;
-    else
-        return true;
-}
 
-void voiture::jump(int to){
-    if(this->jumping(to)==true){
-        return;
-    }
-    else{
-        t=0;
-    }
-}
-
+/*
 double voiture::altitude(int to){
     if(this->jumping(to)==false){
         return 0;

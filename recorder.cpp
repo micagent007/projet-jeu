@@ -2,26 +2,15 @@
 #include "obstacle.h"
 #include "voiture.h"
 
-/*void Recorder::display(int to){
-    clearWindow();
-    fillRect(xvoiture,hFloor-T.altitude(to),wvoiture,-hvoiture,GREEN);
-    for(int i=0;i<50;i++){
-        drawRect(0-(T.jumptime(to)%16)+i*17,hFloor,15,10,BLACK);
-    }
-    T.jumpset(T.jumptime(to)+1,to);
-}*/
-
 void Recorder::display_obstacle(obstacle O,int score){
     clearWindow();
     setBackGround(AlphaColor(26, 42, 35 ));
     fillRect(10,10,8,30,WHITE);
     fillRect(20,10,8,30,WHITE);
     drawString(w/2-50,h/8,to_string(score),WHITE,50);
-    //fillRect(T.Pos.x,T.hauteur(O,T.t),wvoiture,-hvoiture,GREEN);
     rotat_rect(T.Pos.x,T.hauteur(O,T.t+xvoiture),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
     int n=O.P.size()-1;
-    for(int i=0;i<=w+w/5;i++){
-            //drawLine(O.P[i].x-T.t%(O.taille)-wvoiture,O.P[i].y,O.P[i+1].x-T.t%(O.taille)-wvoiture,O.P[i+1].y,Color(249, 13, 253),2);
+    for(int i=0;i<=w;i++){
         drawLine(i,O.P[i+T.t].y,i+1,O.P[i+1+T.t].y,Color(249, 13, 253),2);
     }
     return;
@@ -30,7 +19,7 @@ void Recorder::display_obstacle(obstacle O,int score){
 void rotat_rect(int x,int y,int w,int h,cord_double tangent, Color col){
     drawLine(x,y,x+w*tangent.x,y+w*tangent.y,col,2);
     drawLine(x,y,x+h*tangent.y,y-h*tangent.x,col,2);
-    drawLine(x+h*tangent.y,y-h*tangent.x,x+h*tangent.y+w*tangent.x,y-h*tangent.x+w*tangent.y,col,2);
+    drawLine(x+h*tangent.y,y-h*tangent.x,x+h*tangent.y+w*tangent.x,y-h*tangent.x+w*tangent.y,RED,2);
     drawLine(x+w*tangent.x,y+w*tangent.y,x+h*tangent.y+w*tangent.x,y-h*tangent.x+w*tangent.y,col,2);
     return;
 }
@@ -61,9 +50,6 @@ void home_screen(int score , int record){
         getMouse(x,y);
 }
 bool wait_screen(){
-    /*clearWindow();
-    setBackGround(AlphaColor(26, 42, 35 ));*/
-
     fillRect(w/8,h/4+40,6*w/8,200,BLACK);
     fillRect(w/8,h/4,6*w/8,40,AlphaColor(109, 112, 106));
     fillRect(w/8+25,h/2-90,5*w/8,40,WHITE);
@@ -83,11 +69,3 @@ bool wait_screen(){
     return(false);
 }
 
-
-/*void Recorder::action(int to){
-    if(keyboard()==' '){
-        T.jump(to);
-        //ici la condition de fin de saut est déjà dans présente dans la fonction jump
-    }
-
-}*/
