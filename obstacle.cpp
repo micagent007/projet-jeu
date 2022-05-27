@@ -45,7 +45,7 @@ obstacle::obstacle(int n){
 
     }
     if (n==2){
-        for (double k=0;k<=2*w;k++){//courbe sin sur la largeur de l'écran
+        for (double k=0;k<=2*w;k++){//courbe sin sur 2 fois la largeur de l'écran
             cord O={int(k),int(hFloor-(h/3)*sin(((2*M_PI*k)/w)-M_PI/2)-h/3)};
             P.push_back(O);
             cord_double T={1,-(h/3)*(2*M_PI/w)*cos(((2*M_PI*k)/w)-M_PI/2)};

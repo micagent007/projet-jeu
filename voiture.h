@@ -12,7 +12,7 @@ const int freqDisplay =10;
 const int wvoiture=30,hvoiture=10,xvoiture=50;
 const int h=700,w=400;
 const int hFloor=h-4*hvoiture;
-const int vmax=100 ;
+const int vmax=10 , to=10;
 
 #define square(a) (a)*(a)
 

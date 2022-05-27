@@ -7,15 +7,24 @@ voiture::voiture(){
 }
 
 double voiture::hauteur(obstacle O,int t){
+    int saut=-9.81*(pow(t,2)-pow(to,2))/2+vitesse.y*(t-to);
     int alt = O.P[t].y;
-    return alt;
+    if(saut>alt)
+        return saut;
+    else
+        return alt;
 }
 
 void voiture::refresh_vitess(bool accelere){ // a faire
-    if (vitesse.x<vmax and accelere)
-        vitesse.x+=1;
-    if (vitesse.x>0 and !accelere)
-        vitesse.x-=1;
+    if (vitesse.norm2()<vmax and accelere){
+        vitesse.normalize();
+        vitesse.x=(vitesse.norm2()+1)*vitesse.x;
+        vitesse.y=(vitesse.norm2()+1)*vitesse.y;
+    }
+    if (vitesse.norm2()>1 and !accelere)
+        vitesse.normalize();
+        vitesse.x=(vitesse.norm2()-1)*vitesse.x;
+        vitesse.y=(vitesse.norm2()-1)*vitesse.y;
 
 }
 
