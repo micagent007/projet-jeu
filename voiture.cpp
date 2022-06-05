@@ -7,7 +7,7 @@ voiture::voiture(){
 }
 
 double voiture::hauteur(obstacle O,int t){
-    int saut=hFloor-max(0,O.P[t].x-200)*max(0,O.P[t].x-300);
+    int saut=hFloor-max(0,O.P[t].x-200)*max(0,300-O.P[t].x)/10;
     int alt = O.P[t].y;
     return saut;
 }
