@@ -7,25 +7,33 @@ voiture::voiture(){
 }
 
 double voiture::hauteur(obstacle O,int t){
-    int saut=-9.81*(pow(t,2)-pow(to,2))/2+vitesse.y*(t-to);
+    int saut=hFloor-max(0,O.P[t].x-200)*max(0,O.P[t].x-300);
     int alt = O.P[t].y;
-    if(saut>alt)
-        return saut;
-    else
-        return alt;
+    return saut;
+}
+
+// je teste des trucs pour le saut
+//bool voiture::is_jumping(obstacle O,int t){
+//    if(this->hauteur(O,t)>O.P[t].y)
+//        return true;
+//    else
+//        return false;
+//}
+
+void voiture::increase(int v){
+    double N=vitesse.norm2();
+    vitesse.normalize();
+    vitesse.x=(N+v)*vitesse.x;
+    vitesse.y=(N+v)*vitesse.y;
+    return;
 }
 
 void voiture::refresh_vitess(bool accelere){ // a faire
-    if (vitesse.norm2()<vmax and accelere){
-        vitesse.normalize();
-        vitesse.x=(vitesse.norm2()+1)*vitesse.x;
-        vitesse.y=(vitesse.norm2()+1)*vitesse.y;
-    }
+    if (vitesse.norm2()<vmax and accelere)
+        this->increase(1);
     if (vitesse.norm2()>1 and !accelere)
-        vitesse.normalize();
-        vitesse.x=(vitesse.norm2()-1)*vitesse.x;
-        vitesse.y=(vitesse.norm2()-1)*vitesse.y;
-
+        this->increase(-1);
+    return;
 }
 
 void voiture::refresh_pos(){// a faire
