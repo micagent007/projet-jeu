@@ -7,7 +7,7 @@ voiture::voiture(){
     tangente={0.,0.};
 }
 
-bool collision (obstacle O){
+bool voiture::collision (obstacle O){
 
 };
 
@@ -20,6 +20,7 @@ double voiture::hauteur(obstacle O,int t){
 
 double voiture::hauteur_jump(obstacle O, int t,int to){
     double alt = O.P[to].y-(9.81*pow(O.P[t].x-O.P[to].x,2))/(2*pow(this->vitesse.x,2))-(this->vitesse.y/this->vitesse.x)*(O.P[t].x-O.P[to].x);
+    //double alt = 100;
     return alt;
 }
 

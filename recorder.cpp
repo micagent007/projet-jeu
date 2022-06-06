@@ -2,27 +2,26 @@
 #include "obstacle.h"
 #include "voiture.h"
 
-void Recorder::display_obstacle(obstacle O,int score){
+void Recorder::display_obstacle(obstacle O,int score,int& to){
     clearWindow();
     setBackGround(AlphaColor(26, 42, 35 ));
     fillRect(10,10,8,30,WHITE);
     fillRect(20,10,8,30,WHITE);
     drawString(w/2-50,h/8,to_string(score),WHITE,50);
-    int to=0;
+    cout << T.is_jumping(O,T.t,to) << endl;
     if(!T.is_jumping(O,T.t+xvoiture,to)){
+        //cout << T.can_jump(O,T.t) << endl;
         if(T.can_jump(O,T.t+xvoiture)){
             to=T.t;
             rotat_rect(T.Pos.x,T.hauteur_jump(O,T.t+xvoiture,to),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
-            cout << "c" <<endl;
         }
         else {
             rotat_rect(T.Pos.x,T.hauteur(O,T.t+xvoiture),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
-            cout << "b" <<endl;
         }
     }
     else {
         rotat_rect(T.Pos.x,min(T.hauteur(O,T.t+xvoiture),T.hauteur_jump(O,T.t+xvoiture,to)),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
-        cout << "A" <<endl;
+        //cout << "A" <<endl;
     }
     int n=O.P.size()-1;
     for(int i=0;i<=w;i++){
