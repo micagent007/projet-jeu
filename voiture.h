@@ -12,7 +12,7 @@ const int freqDisplay =10;
 const int wvoiture=30,hvoiture=10,xvoiture=50;
 const int h=700,w=400;
 const int hFloor=h-4*hvoiture;
-const int vmax=10 , to=10 ,v0=1;
+const int vmax=5,v0=1;
 
 #define square(a) (a)*(a)
 
@@ -24,7 +24,10 @@ public:
     cord_double tangente;
 
     bool collision (obstacle O);
-    double hauteur(obstacle O,int n);
+    double hauteur(obstacle O,int t);
+    double hauteur_jump(obstacle O,int t,int to);
+    bool is_jumping(obstacle O,int t,int to);
+    bool can_jump(obstacle O,int t);
     void refresh_vitess(bool accelere);
     void increase(int v);
     void refresh_pos();

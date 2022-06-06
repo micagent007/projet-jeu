@@ -13,18 +13,30 @@ bool collision (obstacle O){
 
 
 double voiture::hauteur(obstacle O,int t){
-    int saut=hFloor-max(0,O.P[t].x-200)*max(0,300-O.P[t].x)/10;
+    //double saut=hFloor-max(0,O.P[t].x-200)*max(0,300-O.P[t].x)/10;
     int alt = O.P[t].y;
-    return saut;
+    return alt;
 }
 
-// je teste des trucs pour le saut
-//bool voiture::is_jumping(obstacle O,int t){
-//    if(this->hauteur(O,t)>O.P[t].y)
-//        return true;
-//    else
-//        return false;
-//}
+double voiture::hauteur_jump(obstacle O, int t,int to){
+    double alt = O.P[to].y-(9.81*pow(O.P[t].x-O.P[to].x,2))/(2*pow(this->vitesse.x,2))-(this->vitesse.y/this->vitesse.x)*(O.P[t].x-O.P[to].x);
+    return alt;
+}
+
+bool voiture::is_jumping(obstacle O,int t,int to){
+   if(this->hauteur_jump(O,t,to)<O.P[t].y)
+        return true;
+    else
+        return false;
+}
+
+bool voiture::can_jump(obstacle O, int t){
+    double alt=O.P[t].y-(9.81/(2*pow(this->vitesse.x,2)))+this->vitesse.y/this->vitesse.x;
+    if(alt<O.P[t+1].y)
+        return true;
+    else
+        return false;
+}
 
 void voiture::increase(int v){
     double N=vitesse.norm2();

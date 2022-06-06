@@ -8,7 +8,22 @@ void Recorder::display_obstacle(obstacle O,int score){
     fillRect(10,10,8,30,WHITE);
     fillRect(20,10,8,30,WHITE);
     drawString(w/2-50,h/8,to_string(score),WHITE,50);
-    rotat_rect(T.Pos.x,T.hauteur(O,T.t+xvoiture),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
+    int to=0;
+    if(!T.is_jumping(O,T.t+xvoiture,to)){
+        if(T.can_jump(O,T.t+xvoiture)){
+            to=T.t;
+            rotat_rect(T.Pos.x,T.hauteur_jump(O,T.t+xvoiture,to),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
+            cout << "c" <<endl;
+        }
+        else {
+            rotat_rect(T.Pos.x,T.hauteur(O,T.t+xvoiture),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
+            cout << "b" <<endl;
+        }
+    }
+    else {
+        rotat_rect(T.Pos.x,min(T.hauteur(O,T.t+xvoiture),T.hauteur_jump(O,T.t+xvoiture,to)),wvoiture,hvoiture,O.D[T.t+xvoiture],GREEN);
+        cout << "A" <<endl;
+    }
     int n=O.P.size()-1;
     for(int i=0;i<=w;i++){
         drawLine(i,O.P[i+T.t].y,i+1,O.P[i+1+T.t].y,Color(249, 13, 253),2);
