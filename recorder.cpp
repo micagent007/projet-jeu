@@ -13,7 +13,7 @@ void Recorder::display_obstacle(obstacle O,int score){
     for(int i=0;i<=w;i++){
         drawLine(i,O.P[i+T.t].y,i+1,O.P[i+1+T.t].y,Color(249, 13, 253),2);
     }
-    cout << O.P[T.t+xvoiture].x << endl;
+    //cout << O.P[T.t+xvoiture].x << endl;
     return;
 }
 

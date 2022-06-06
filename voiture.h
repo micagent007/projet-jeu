@@ -18,11 +18,12 @@ const int vmax=10 , to=10 ,v0=1;
 
 class voiture{
 public:
-    cord Pos;
+    cord Pos; // la position du point en bas a gauche
     cord_double vitesse;
     int t;// corespond au trajet parcourus par la voiture en x
+    cord_double tangente;
 
-
+    bool collision (obstacle O);
     double hauteur(obstacle O,int n);
     void refresh_vitess(bool accelere);
     void increase(int v);
