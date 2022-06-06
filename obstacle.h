@@ -2,7 +2,7 @@
 #define OBSTACLE_H
 
 #include "cord.h"
-const int nbre_obstacle=2;
+const int nbre_obstacle=3;
 
 class obstacle {
 public:

@@ -54,6 +54,71 @@ obstacle::obstacle(int n){
         }
         taille=P[P.size()-1].x;
     }
+    if (n==3){
+        for(int k=0;k<w/5;k++){//sol plat sur 1/10 de l'écran
+            cord O={k,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+        for (int k=w/5;k<=3*w/5;k++){//affine croissante sur 2/5 de l'écran
+            cord O={k,hFloor-2*k+2*w/5};
+            P.push_back(O);
+            cord_double T={1,-2};
+            T.normalize();
+            D.push_back(T);}
+        for (int k=3*w/5;k<=4*w/5;k++){//cercle sur 1/5 de l'écran vers le haut
+            cord O={k,hFloor-3*w/5-int(sqrt(pow((90 ),2)-pow((k-7*w/10),2)+w/5))};
+            P.push_back(O);
+            cord_double T={1,(k-7*w/10)/sqrt(pow((90 ),2)-pow((k-7*w/10),2))};
+            T.normalize();
+            D.push_back(T);}
+
+        for (int k=0;k<=2*w/5;k++){//affine décroissante sur 1/5 de l'écran
+            cord O={4*w/5+k,hFloor+k-4*w/5};
+            P.push_back(O);
+            cord_double T={1,1};
+            T.normalize();
+            D.push_back(T);}
+
+        for (int k=3*w/5;k<=4*w/5;k++){//cercle sur 1/5 de l'écran vers le bas
+            cord O={k+3*w/5,hFloor-3*w/5+int(sqrt(pow((90 ),2)-pow((k-7*w/10),2)+w/5))};
+            P.push_back(O);
+            cord_double T={1,-(k-7*w/10)/sqrt(pow((90 ),2)-pow((k-7*w/10),2))};
+            T.normalize();
+            D.push_back(T);}
+
+
+        for (int k=0;k<=2*w/5;k++){//affine décroissante sur 1/5 de l'écran
+            cord O={7*w/5+k,hFloor-k-2*w/5};
+            P.push_back(O);
+            cord_double T={1,-1};
+            T.normalize();
+            D.push_back(T);}
+
+        for (int k=3*w/5;k<=4*w/5;k++){//cercle sur 1/5 de l'écran vers le haut
+            cord O={k+6*w/5,hFloor-3*w/5-int(sqrt(pow((90 ),2)-pow((k-7*w/10),2)+w/5))};
+            P.push_back(O);
+            cord_double T={1,(k-7*w/10)/sqrt(pow((90 ),2)-pow((k-7*w/10),2))};
+            T.normalize();
+            D.push_back(T);}
+
+        for (int k=w/5;k<=3*w/5;k++){//affine croissante sur 2/5 de l'écran
+            cord O={k+9*w/5,hFloor-6*w/5+2*k};
+            P.push_back(O);
+            cord_double T={1,2};
+            T.normalize();
+            D.push_back(T);}
+
+        for(int k=0;k<w/10;k++){//sol plat sur 1/5 de l'écran
+            cord O={k+12*w/5,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+
+        taille=P[P.size()-1].x;
+    }
 }
 
 obstacle::obstacle(int t,std::vector<cord>R,std::vector<cord_double> T){
