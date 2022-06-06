@@ -22,12 +22,13 @@ int main(){
                 if(keyboard()==' '){// pour l'instant on fait ca mais apres la commande keyboard nous dira juste qu'il faut continuer a acceler dans la vitesse si elle n'est pas la alors la moto decelere mais il faudra afficher dans tous les cas
                     R.T.t+=vmax;
                     score=R.T.t/200;
-                    R.display_obstacle(S,score);
+
                     if (S.taille-2*w<R.T.t){
                         obstacle Q(1+rand()%nbre_obstacle);
                         S=S+Q;
                     }
                 }
+                R.display_obstacle(S,score);
             }
             e=clicks();
             if (e.pix.x()>0 and e.pix.x()<=30 and e.pix.y()>=0 and e.pix.y()<=40){
