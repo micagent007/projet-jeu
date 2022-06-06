@@ -4,7 +4,13 @@ voiture::voiture(){
     Pos={xvoiture,hFloor};
     vitesse={0.,0.};
     t=0;
+    tangente={0.,0.};
 }
+
+bool collision (obstacle O){
+
+};
+
 
 double voiture::hauteur(obstacle O,int t){
     int saut=hFloor-max(0,O.P[t].x-200)*max(0,O.P[t].x-300);
@@ -37,8 +43,10 @@ void voiture::refresh_vitess(bool accelere){ // a faire
 }
 
 void voiture::refresh_pos(){// a faire
-    t+=vitesse.x;
+    t+=vitesse.x*dt;
 }
+
+
 
 /*
 double voiture::altitude(int to){
