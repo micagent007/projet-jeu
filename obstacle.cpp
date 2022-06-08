@@ -27,35 +27,93 @@ obstacle::obstacle(int n){
 
     }
     if (n==1){
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={k,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+
         for (int k=0;k<=w;k++){//courbe puissance croissant sur 1/2 de l'écran
-            cord O={k,int(hFloor-pow(k,1.4)/10)};
+            cord O={k+w/10,int(hFloor-pow(k,1.4)/10)};
             P.push_back(O);
             cord_double T={1,-1.4*pow(k,0.4)/10};
             T.normalize();
             D.push_back(T);
         }
+
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={21*w/10+k,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+
         for (int k=0;k<=w;k++){//courbe puissance décroissante sur 1/2 de l'écran
-            cord O={w+k,int(hFloor-pow(w-k,1.4)/10)};
+            cord O={11*w/10+k,int(hFloor-pow(w-k,1.4)/10)};
             P.push_back(O);
             cord_double T={1,1.4*pow(w-k,0.4)/10};
             T.normalize();
             D.push_back(T);
         }
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={21*w/10+k,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+
         taille=P[P.size()-1].x;
 
     }
     if (n==2){
-        for (double k=0;k<=2*w;k++){//courbe sin sur 2 fois la largeur de l'écran
-            cord O={int(k),int(hFloor-(h/3)*sin(((2*M_PI*k)/w)-M_PI/2)-h/3)};
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={k,hFloor};
             P.push_back(O);
-            cord_double T={1,-(h/3)*(2*M_PI/w)*cos(((2*M_PI*k)/w)-M_PI/2)};
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+        for (int k=w/10;k<=3*w/10;k++){//affine croissante sur 1/5 de l'écran
+            cord O={k,hFloor-2*k+2*w/10};
+            P.push_back(O);
+            cord_double T={1,-2};
+            T.normalize();
+            D.push_back(T);}
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={k+3*w/10,hFloor-4*w/10};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+        for (double k=0;k<=2*w;k++){//courbe sin sur 2 fois la largeur de l'écran
+            cord O={int(k+4*w/10),hFloor-int((h/6)*sin(((2*M_PI*k)/w)-M_PI/2))-h/6-4*w/10};
+            P.push_back(O);
+            cord_double T={1,-(h/6)*(2*M_PI/w)*cos(((2*M_PI*k)/w)-M_PI/2)};
             T.normalize();
             D.push_back(T);
         }
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={k+24*w/10,hFloor-4*w/10};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
+        for (int k=0;k<=2*w/10;k++){//affine croissante sur 1/5 de l'écran
+            cord O={k+25*w/10,hFloor+2*k-4*w/10};
+            P.push_back(O);
+            cord_double T={1,2};
+            T.normalize();
+            D.push_back(T);}
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
+            cord O={k+27*w/10,hFloor};
+            P.push_back(O);
+            cord_double T={1,0};
+            T.normalize();
+            D.push_back(T);}
         taille=P[P.size()-1].x;
     }
     if (n==3){
-        for(int k=0;k<w/5;k++){//sol plat sur 1/10 de l'écran
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
             cord O={k,hFloor};
             P.push_back(O);
             cord_double T={1,0};
@@ -110,7 +168,7 @@ obstacle::obstacle(int n){
             T.normalize();
             D.push_back(T);}
 
-        for(int k=0;k<w/10;k++){//sol plat sur 1/5 de l'écran
+        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
             cord O={k+12*w/5,hFloor};
             P.push_back(O);
             cord_double T={1,0};
