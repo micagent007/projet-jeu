@@ -2,7 +2,7 @@
 
 voiture::voiture(){
     Pos={xvoiture,hFloor};
-    vitesse={0.,0.};
+    vitesse={1.,1.};
     t=0;
     tangente={0.,0.};
 }
@@ -19,16 +19,21 @@ double voiture::hauteur(obstacle O,int t){
 }
 
 double voiture::hauteur_jump(obstacle O, int t,int to){
-    double alt = O.P[to].y-(9.81*pow(O.P[t].x-O.P[to].x,2))/(2*pow(this->vitesse.x,2))-(this->vitesse.y/this->vitesse.x)*(O.P[t].x-O.P[to].x);
+//    if(this->vitesse.x==0)
+//        return this->hauteur(O,t);
+    double alt = O.P[to].y-((9.81*pow(O.P[t].x-O.P[to].x,2))/(2*pow(this->vitesse.x,2))-(this->vitesse.y/this->vitesse.x)*(O.P[t].x-O.P[to].x))/100;
+    //double alt = O.P[to].y-(9.81*pow(O.P[t].x-O.P[to].x,2))/2;
     //double alt = 100;
     return alt;
 }
 
 bool voiture::is_jumping(obstacle O,int t,int to){
-   if(this->hauteur_jump(O,t,to)<O.P[t].y)
-        return true;
-    else
-        return false;
+   if(to==0)
+       return false;
+   else if(this->hauteur_jump(O,t,to)<O.P[t].y)
+       return true;
+   else
+       return false;
 }
 
 bool voiture::can_jump(obstacle O, int t){
