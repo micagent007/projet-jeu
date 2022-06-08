@@ -20,15 +20,19 @@ int main(){
         for(int timeStep=0; timeStep<100000*freqDisplay; timeStep++) {
             if ((timeStep%freqDisplay)==0){
                 milliSleep(5);
+                noRefreshBegin();
+                R.display_obstacle(S,score,to);
+                noRefreshEnd();
                 if(keyboard()==' '){// pour l'instant on fait ca mais apres la commande keyboard nous dira juste qu'il faut continuer a acceler dans la vitesse si elle n'est pas la alors la moto decelere mais il faudra afficher dans tous les cas
                     R.T.t+=vmax;
                     score=R.T.t/200;
-                    R.display_obstacle(S,score,to);
+
                     if (S.taille-2*w<R.T.t){
                         obstacle Q(1+rand()%nbre_obstacle);
                         S=S+Q;
                     }
                 }
+
 
             }
             e=clicks();

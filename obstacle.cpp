@@ -42,15 +42,15 @@ obstacle::obstacle(int n){
             D.push_back(T);
         }
 
-        for(int k=0;k<w/10;k++){//sol plat sur 1/10 de l'écran
-            cord O={21*w/10+k,hFloor};
+        for(int k=0;k<w/5;k++){//sol plat sur 1/10 de l'écran
+            cord O={11*w/10+k,2*h};
             P.push_back(O);
             cord_double T={1,0};
             T.normalize();
             D.push_back(T);}
 
         for (int k=0;k<=w;k++){//courbe puissance décroissante sur 1/2 de l'écran
-            cord O={11*w/10+k,int(hFloor-pow(w-k,1.4)/10)};
+            cord O={13*w/10+k,int(hFloor-pow(w-k,1.4)/10)};
             P.push_back(O);
             cord_double T={1,1.4*pow(w-k,0.4)/10};
             T.normalize();
